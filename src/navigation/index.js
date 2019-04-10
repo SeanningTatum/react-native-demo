@@ -20,7 +20,6 @@ const BoardList = createStackNavigator(
     mode: 'modal',
     initialRouteKey: 'BoardList',
     navigationOptions: {
-      tabBarIcon: <Icons name="trello" size={22} color={THEME.primary} />,
       header: null,
     },
   }
@@ -33,6 +32,9 @@ const BoardStack = createStackNavigator(
   },
   {
     initialRouteKey: 'BoardList',
+    navigationOptions: {
+      tabBarIcon: <Icons name="trello" size={22} color={THEME.primary} />,
+    },
   }
 )
 
