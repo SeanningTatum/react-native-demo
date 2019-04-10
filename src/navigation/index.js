@@ -7,17 +7,32 @@ import Settings from '../screens/Settings'
 import Notifications from '../screens/Notifications'
 import Search from '../screens/Search'
 import Home from '../screens/Home'
+import AddBoard from '../screens/AddBoard'
+import Board from '../screens/Board'
 import {THEME} from '../config/constants'
+
+const BoardList = createStackNavigator(
+  {
+    BoardList: {screen: Boards},
+    AddBoard: {screen: AddBoard},
+  },
+  {
+    mode: 'modal',
+    initialRouteKey: 'BoardList',
+    navigationOptions: {
+      tabBarIcon: <Icons name="trello" size={22} color={THEME.primary} />,
+      header: null,
+    },
+  }
+)
 
 const BoardStack = createStackNavigator(
   {
-    Board: {screen: Boards},
+    BoardList,
+    Board: {screen: Board},
   },
   {
-    initialRouteName: 'Board',
-    navigationOptions: {
-      tabBarIcon: <Icons name="trello" size={22} color={THEME.primary} />,
-    },
+    initialRouteKey: 'BoardList',
   }
 )
 
