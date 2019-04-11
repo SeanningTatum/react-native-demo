@@ -1,6 +1,11 @@
 import React from 'react'
 import Icons from 'react-native-vector-icons/FontAwesome'
-import {createStackNavigator, createAppContainer, createBottomTabNavigator} from 'react-navigation'
+import {
+  createStackNavigator,
+  createAppContainer,
+  createBottomTabNavigator,
+  createSwitchNavigator,
+} from 'react-navigation'
 
 import Boards from '../screens/Boards'
 import Settings from '../screens/Settings'
@@ -10,6 +15,7 @@ import Home from '../screens/Home'
 import AddBoard from '../screens/AddBoard'
 import Board from '../screens/Board'
 import {THEME} from '../config/constants'
+import Test from '../screens/Test'
 
 const BoardList = createStackNavigator(
   {
@@ -38,9 +44,13 @@ const BoardStack = createStackNavigator(
   }
 )
 
+const SettingsNav = createSwitchNavigator({
+  Settings: {screen: Settings},
+})
+
 const AppNavigator = createBottomTabNavigator({
   Boards: BoardStack,
-  Settings: {screen: Settings},
+  Settings: SettingsNav,
   Notifications: {screen: Notifications},
   Search: {screen: Search},
   Home: {screen: Home},

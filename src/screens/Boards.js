@@ -29,6 +29,7 @@ class Boards extends Component {
       <View>
         <Text> BoardsScreen </Text>
         <Button title="Go to board" onPress={() => this.props.navigation.push('Board')} />
+        <Button title="Open Drawer" onPress={() => this.props.navigation.openDrawer()} />
       </View>
     )
   }
